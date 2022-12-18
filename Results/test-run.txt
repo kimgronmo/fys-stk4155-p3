@@ -1,0 +1,115 @@
+
+(base) C:\Users\kimgr\Downloads\STUDY\Master\2022\fys-stk4155\project3>python project3.py
+
+---------------------
+Running main function
+---------------------
+
+
+
+Exploring the data set and setting up train and test data:
+
+We have 768 rows and 9 columns
+   Pregnancies  Glucose  BloodPressure  SkinThickness  Insulin   BMI  DiabetesPedigreeFunction  Age  Outcome
+0            6      148             72             35        0  33.6                     0.627   50        1
+1            1       85             66             29        0  26.6                     0.351   31        0
+2            8      183             64              0        0  23.3                     0.672   32        1
+3            1       89             66             23       94  28.1                     0.167   21        0
+4            0      137             40             35      168  43.1                     2.288   33        1
+
+
+       Pregnancies     Glucose  BloodPressure  ...  DiabetesPedigreeFunction         Age     Outcome
+count   768.000000  768.000000     768.000000  ...                768.000000  768.000000  768.000000
+mean      3.845052  120.894531      69.105469  ...                  0.471876   33.240885    0.348958
+std       3.369578   31.972618      19.355807  ...                  0.331329   11.760232    0.476951
+min       0.000000    0.000000       0.000000  ...                  0.078000   21.000000    0.000000
+25%       1.000000   99.000000      62.000000  ...                  0.243750   24.000000    0.000000
+50%       3.000000  117.000000      72.000000  ...                  0.372500   29.000000    0.000000
+75%       6.000000  140.250000      80.000000  ...                  0.626250   41.000000    1.000000
+max      17.000000  199.000000     122.000000  ...                  2.420000   81.000000    1.000000
+
+[8 rows x 9 columns]
+
+
+Checking to see if we have missing values:
+Pregnancies                 0
+Glucose                     0
+BloodPressure               0
+SkinThickness               0
+Insulin                     0
+BMI                         0
+DiabetesPedigreeFunction    0
+Age                         0
+Outcome                     0
+dtype: int64
+   Pregnancies  Glucose  BloodPressure  SkinThickness  Insulin   BMI  DiabetesPedigreeFunction  Age  Outcome
+0            6    148.0           72.0           35.0      NaN  33.6                     0.627   50        1
+1            1     85.0           66.0           29.0      NaN  26.6                     0.351   31        0
+2            8    183.0           64.0            NaN      NaN  23.3                     0.672   32        1
+3            1     89.0           66.0           23.0     94.0  28.1                     0.167   21        0
+4            0    137.0           40.0           35.0    168.0  43.1                     2.288   33        1
+Pregnancies                   0
+Glucose                       5
+BloodPressure                35
+SkinThickness               227
+Insulin                     374
+BMI                          11
+DiabetesPedigreeFunction      0
+Age                           0
+Outcome                       0
+dtype: int64
+
+The number of diabetic is 268 persons and number of healthy is 500 persons
+   Pregnancies  Glucose  BloodPressure  SkinThickness     Insulin   BMI  DiabetesPedigreeFunction  Age  Outcome
+0            6    148.0           72.0           35.0  206.846154  33.6                     0.627   50        1
+2            8    183.0           64.0           33.0  206.846154  23.3                     0.672   32        1
+4            0    137.0           40.0           35.0  168.000000  43.1                     2.288   33        1
+6            3     78.0           50.0           32.0   88.000000  31.0                     0.248   26        1
+8            2    197.0           70.0           45.0  543.000000  30.5                     0.158   53        1
+    Pregnancies  Glucose  BloodPressure  SkinThickness     Insulin   BMI  DiabetesPedigreeFunction  Age  Outcome
+1             1     85.0      66.000000      29.000000  130.287879  26.6                     0.351   31        0
+3             1     89.0      66.000000      23.000000   94.000000  28.1                     0.167   21        0
+5             5    116.0      74.000000      27.235457  130.287879  25.6                     0.201   30        0
+7            10    115.0      70.877339      27.235457  130.287879  35.3                     0.134   29        0
+10            4    110.0      92.000000      27.235457  130.287879  37.6                     0.191   30        0
+
+
+ Sample from the data set:
+      Pregnancies  Glucose  BloodPressure  SkinThickness     Insulin   BMI  DiabetesPedigreeFunction  Age  Outcome
+645            2    157.0           74.0           35.0  440.000000  39.4                     0.134   30        0
+237            0    179.0           90.0           27.0  206.846154  44.1                     0.686   23        1
+545            8    186.0           90.0           35.0  225.000000  34.5                     0.423   37        1
+516            9    145.0           88.0           34.0  165.000000  30.3                     0.771   53        1
+205            5    111.0           72.0           28.0  130.287879  23.9                     0.407   27        0
+765            5    121.0           72.0           23.0  112.000000  26.2                     0.245   30        0
+663            9    145.0           80.0           46.0  130.000000  37.9                     0.637   40        1
+472            0    119.0           66.0           27.0  130.287879  38.8                     0.259   22        0
+459            9    134.0           74.0           33.0   60.000000  25.9                     0.460   81        0
+310            6     80.0           66.0           30.0  130.287879  26.2                     0.313   41        0
+
+Starting Model Evaluations:
+Test set accuracy with Logistic Regression: 0.75
+Test set accuracy with SVM: 0.83
+Test set accuracy with Decision Trees: 0.89
+Test set accuracy with MLPClassifier: 0.84
+Test set accuracy with Random Forest: 0.87
+Test set accuracy with hard voting: 0.87
+Test set accuracy with soft voting: 0.89
+Test set accuracy with Bagging: 0.88
+Test set accuracy with ADAboost: 0.87
+Test set accuracy with GradientBoosting: 0.90
+Test set accuracy with XGBoost: 0.89
+
+Accuracy scores:
+                                 Train      Test
+Logistic Regression           0.789902  0.746753
+Support Vector Machines       0.982085  0.831169
+Decision Trees                1.000000  0.889610
+Neural Network MLPC           0.899023  0.844156
+Random Forest                 0.986971  0.870130
+Voting Classifier Hard        0.978827  0.870130
+Voting Classifier Soft        0.985342  0.889610
+Bagging Classifier            0.912052  0.883117
+AdaBoostClassifier            0.941368  0.870130
+Gradient Boosting Classifier  1.000000  0.902597
+XGBoost                       1.000000  0.889610
